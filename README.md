@@ -31,7 +31,7 @@ Push to `config/` or `build.yaml` triggers the [Build ZMK firmware](.github/work
 ## Regenerate Keymap SVG
 
 ```sh
-make install   # one-time: pip install keymap-drawer
+make install   # one-time: uv tool install keymap-drawer
 make svg       # parse + render SVG
 ```
 

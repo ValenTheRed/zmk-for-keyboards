@@ -18,11 +18,10 @@ BOARD_NAME  ?= $(basename $(notdir $(KEYMAP)))
 SVG_FILE    ?= $(OUT_DIR)/$(BOARD_NAME)_keymap.svg
 YAML_FILE   ?= /tmp/$(BOARD_NAME)_keymap.yaml
 HTML_FILE   ?= $(OUT_DIR)/keymap-viewer.html
-BROWSER     ?= Google Chrome
+BROWSER     ?= firefox
 
-# --- Python / pip detection ---
-PYTHON      := $(shell command -v python3 2>/dev/null || command -v python 2>/dev/null)
-PIP         := $(shell command -v pip3 2>/dev/null || command -v pip 2>/dev/null)
+# --- uv and keymap detection ---
+UV          := $(shell command -v uv 2>/dev/null)
 KEYMAP_DRAW := $(shell command -v keymap 2>/dev/null)
 
 .PHONY: all install svg viewer open clean check-deps help
@@ -33,7 +32,7 @@ help:
 	@echo "ZMK Keymap Visualizer"
 	@echo ""
 	@echo "Targets:"
-	@echo "  make install     Install keymap-drawer via pip"
+	@echo "  make install     Install keymap-drawer via uv"
 	@echo "  make svg         Parse keymap and generate SVG"
 	@echo "  make viewer      Open HTML viewer in browser"
 	@echo "  make open        Open both SVG and HTML viewer"
@@ -47,16 +46,13 @@ help:
 	@echo "  SVG_FILE=$(SVG_FILE)"
 
 check-deps:
-ifndef PYTHON
-	$(error "python3 not found. Install Python 3 first.")
-endif
-ifndef PIP
-	$(error "pip not found. Install pip first.")
+ifndef UV
+	$(error "uv not found. Install uv first.")
 endif
 
 install: check-deps
 	@echo "==> Installing keymap-drawer..."
-	$(PIP) install --upgrade keymap-drawer
+	$(UV) tool install keymap-drawer
 	@echo "==> Done."
 
 svg: $(SVG_FILE)
