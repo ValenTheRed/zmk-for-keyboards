@@ -16,14 +16,6 @@ The SVG updates automatically on push via the [Draw Keymap](.github/workflows/dr
 - **Left (central):** Built-in ZMK status screen (layer, battery, BT)
 - **Right (peripheral):** Custom P keycap logo with glitch effects + battery + BT status
 
-## Interactive Viewer
-
-```sh
-make viewer
-```
-
-Press `?` for the cheat sheet. Press `0-6` to switch layers.
-
 ## Build Firmware
 
 Push to `config/` or `build.yaml` triggers the [Build ZMK firmware](.github/workflows/build.yml) workflow. Download `.uf2` files from Actions artifacts.

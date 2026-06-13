@@ -4,7 +4,6 @@
 # Usage:
 #   make install    - Install dependencies (keymap-drawer)
 #   make svg        - Generate SVG from keymap
-#   make viewer     - Open interactive HTML viewer
 #   make all        - Install + generate SVG + open viewer
 #   make clean      - Remove generated files
 #
@@ -17,14 +16,12 @@ OUT_DIR     ?= .
 BOARD_NAME  ?= $(basename $(notdir $(KEYMAP)))
 SVG_FILE    ?= $(OUT_DIR)/$(BOARD_NAME)_keymap.svg
 YAML_FILE   ?= /tmp/$(BOARD_NAME)_keymap.yaml
-HTML_FILE   ?= $(OUT_DIR)/keymap-viewer.html
-BROWSER     ?= firefox
 
 # --- uv and keymap detection ---
 UV          := $(shell command -v uv 2>/dev/null)
 KEYMAP_DRAW := $(shell command -v keymap 2>/dev/null)
 
-.PHONY: all install svg viewer open clean check-deps help
+.PHONY: all install svg open clean check-deps help
 
 all: install svg open
 
@@ -34,8 +31,7 @@ help:
 	@echo "Targets:"
 	@echo "  make install     Install keymap-drawer via uv"
 	@echo "  make svg         Parse keymap and generate SVG"
-	@echo "  make viewer      Open HTML viewer in browser"
-	@echo "  make open        Open both SVG and HTML viewer"
+	@echo "  make open        Open both"
 	@echo "  make clean       Remove generated SVG and YAML"
 	@echo "  make all         install + svg + open"
 	@echo ""
@@ -64,13 +60,9 @@ $(SVG_FILE): $(KEYMAP)
 	keymap draw $(YAML_FILE) > $(SVG_FILE)
 	@echo "==> Generated $(SVG_FILE) ($$(wc -c < $(SVG_FILE) | tr -d ' ') bytes)"
 
-viewer: $(HTML_FILE)
-	@echo "==> Opening HTML viewer..."
-	open -a "$(BROWSER)" $(HTML_FILE) 2>/dev/null || open $(HTML_FILE) 2>/dev/null || xdg-open $(HTML_FILE)
-
-open: svg viewer
+open: svg
 	@echo "==> Opening SVG..."
-	open -a "$(BROWSER)" $(SVG_FILE) 2>/dev/null || open $(SVG_FILE) 2>/dev/null || xdg-open $(SVG_FILE)
+	open -a open $(SVG_FILE) 2>/dev/null || xdg-open $(SVG_FILE)
 
 clean:
 	@echo "==> Cleaning generated files..."
