@@ -74,10 +74,10 @@
         l1_layer {
             display-name = "L1";
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none      &kp CARET  &kp AMPS   &kp ASTRK       &kp LPAR         &kp RPAR  &kp PLUS
-&kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6     &kp MINUS  &kp EQUAL  &kp LEFT_BRACE  &kp RIGHT_BRACE  &none     &kp BACKSLASH
-&kp F7      &kp F8        &kp F9        &kp F10       &kp F11       &kp F12    &kp UNDER  &none      &none           &none            &none     &none
-                                        &none         &none         &none      &none      &none      &none
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none      &kp CARET  &kp AMPS      &kp ASTRK       &kp LPAR         &kp RPAR  &kp PLUS
+&kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6     &kp MINUS  &kp EQUAL     &kp LEFT_BRACE  &kp RIGHT_BRACE  &none     &kp BACKSLASH
+&kp F7      &kp F8        &kp F9        &kp F10       &kp F11       &kp F12    &kp UNDER  &none         &none           &none            &none     &none
+                                        &none         &none         &none      &none      &kp C_BRI_UP  &kp C_BRI_DN
             >;
         };
 
@@ -94,8 +94,8 @@
         l2_layer {
             display-name = "L2";
             bindings = <
-&none  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6      &kp N7        &kp N8        &kp N9     &kp N0    &none
-&none  &none   &none   &none   &none   &none     &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT  &kp CAPS  &none
+&none  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6      &kp N7        &kp N8        &kp N9     &kp N0    &kp HOME
+&none  &none   &none   &none   &none   &none     &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT  &kp CAPS  &kp END
 &none  &none   &none   &none   &none   &none     &none       &none         &none         &none      &none     &kp PG_UP
                        &none   &none   &none     &kp C_MUTE  &kp C_VOL_UP  &kp C_VOL_DN
             >;
