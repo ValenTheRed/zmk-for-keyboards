@@ -65,7 +65,7 @@
             display-name = "BASE";
             bindings = <
 &kp ESC     &kp Q  &kp W        &kp E       &kp R        &kp T         &kp Y       &kp U        &kp I       &kp O        &kp P     &kp BSPC
-&kp TAB     &kp A  &mt LSHFT S  &mt LGUI D  &mt LCTRL F  &mt LALT G    &mt RALT H  &mt RCTRL J  &mt RGUI K  &mt RSHFT L  &kp SEMI  &kp SQT
+&kp TAB     &kp A  &mt LSHFT S  &mt LGUI D  &mt LCTRL F  &mt LALT G    &mt LALT H  &mt RCTRL J  &mt RGUI K  &mt RSHFT L  &kp SEMI  &kp SQT
 &kp DELETE  &kp Z  &kp X        &kp C       &kp V        &kp B         &kp N       &kp M        &kp COMMA   &kp DOT      &kp FSLH  &kp PG_DN
                                 &mo 3       &mo 1        &kp SPACE     &kp RET     &mo 2        &mo 4
             >;
@@ -76,7 +76,7 @@
             bindings = <
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none      &kp CARET  &kp AMPS      &kp ASTRK       &kp LPAR         &kp RPAR  &kp PLUS
 &kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6     &kp MINUS  &kp EQUAL     &kp LEFT_BRACE  &kp RIGHT_BRACE  &none     &kp BACKSLASH
-&kp F7      &kp F8        &kp F9        &kp F10       &kp F11       &kp F12    &kp UNDER  &none         &none           &none            &none     &none
+&kp F7      &kp F8        &kp F9        &kp F10       &kp F11       &kp F12    &kp UNDER  &kp PLUS         &none           &none            &none     &none
                                         &none         &none         &none      &none      &kp C_BRI_UP  &kp C_BRI_DN
             >;
         };
@@ -94,8 +94,8 @@
         l2_layer {
             display-name = "L2";
             bindings = <
-&none  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6      &kp N7        &kp N8        &kp N9     &kp N0    &kp HOME
-&none  &none   &none   &none   &none   &none     &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT  &kp CAPS  &kp END
+&none  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6      &kp N7        &kp N8        &kp N9     &kp N0    &kp BSPC
+&none  &none   &none   &none   &none   &none     &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT  &kp CAPS  &none
 &none  &none   &none   &none   &none   &none     &none       &none         &none         &none      &none     &kp PG_UP
                        &none   &none   &none     &kp C_MUTE  &kp C_VOL_UP  &kp C_VOL_DN
             >;
@@ -104,9 +104,9 @@
         r2_layer {
             display-name = "R2";
             bindings = <
-&none  &kp N1  &kp N2  &kp N3      &kp N4      &kp N5    &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &none
-&none  &none   &none   &none       &none       &none     &none   &none   &none   &none   &none   &none
-&none  &none   &none   &none       &none       &none     &none   &none   &none   &none   &none   &none
+&kp HOME  &kp N1  &kp N2  &kp N3      &kp N4      &kp N5    &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC
+&kp END   &none   &none   &none       &none       &none     &none   &none   &none   &none   &none   &none
+&none     &none   &none   &none       &none       &none     &none   &none   &none   &none   &none   &none
                        &kp C_PREV  &kp C_NEXT  &kp C_PP  &none   &none   &none
             >;
         };
